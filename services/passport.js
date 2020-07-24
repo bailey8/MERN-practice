@@ -26,6 +26,7 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       // This has to be set in the google console as a verified redirect URI
       callbackURL: "/auth/google/callback",
+      proxy:true
     },
 
     // Opportunity to create new user inside DB
