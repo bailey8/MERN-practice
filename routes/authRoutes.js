@@ -31,10 +31,6 @@ module.exports = (app) => {
     res.send(req.session);
   });
 
-   // --- This inspects the current user ----------
-   app.get("/api/:id", (req, res) => {
-    res.send(req.query);
-  });
 };
 
 

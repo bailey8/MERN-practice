@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-//------------------Handle cookies ---------------------------
+//------------------Handle cookies -----------------------------------------------------------
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -22,20 +22,24 @@ app.use(passport.initialize())
 app.use(passport.session()); // Tells passport to use cookies
 
 
-//----------------- Mongoose config --------------------------
+//----------------- Mongoose config --------------------------------------------------------------------
 const mongoose = require("mongoose");
 mongoose.connect(keys.mongoURI);
 
 // Will automatically get executed
 require("./models/User"); // Must be imported first, before passport
+require("./models/Survey"); // Don't need to import recipient Model bc that is already imported in the survey model
 require("./services/passport");
 
-// -------------------Routes ----------------------------------
+// -------------------Routes ---------------------------------------------------------------------------
 // --------------Dont do it this way -------------------
 // const authRoutes = require("./routes/authRoutes");
 // authRoutes(app);
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
+
+
 
 if (process.env.NODE_ENV === 'production') {
 
