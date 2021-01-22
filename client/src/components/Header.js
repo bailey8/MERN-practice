@@ -5,6 +5,7 @@ import Payments from './Payments';
 
 class Header extends Component {
   renderContent() {
+    console.log(this.props);
     switch (this.props.auth) {
       case null:
         return;
@@ -40,8 +41,8 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, surveys }) {
+  return { auth, surveys };
 }
 
 export default connect(mapStateToProps)(Header);

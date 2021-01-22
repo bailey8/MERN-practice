@@ -48,6 +48,8 @@ if (process.env.NODE_ENV === 'production') {
 
   //Serve up the index.html file if it doesn't recognize the route
   const path = require('path');
+
+  // For all URLS return index.html because react router handles which page is showed
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
