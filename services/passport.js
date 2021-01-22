@@ -13,7 +13,7 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback", // This has to be set in the google console as a verified redirect URI
-      proxy: true,
+      proxy: true // need this so heroku works
     },
 
     // After the auth code is exchanged for the access token, the access token is sent to this function and this determines what user sees next

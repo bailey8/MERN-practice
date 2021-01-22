@@ -1,7 +1,8 @@
 const keys = require('../../config/keys');
 
 module.exports = survey => {
-  return `
+  //  ${The survey.id} is the ID that mongo attached to the document
+  return `-
     <html>
       <body>
         <div style="text-align: center;">
