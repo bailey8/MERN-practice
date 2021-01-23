@@ -22,7 +22,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     );
   });
 
-  const onSubmit =  async () => {
+  const onSubmit = () => {
       setDisableButton(true)
       submitSurvey(formValues, history)
   };

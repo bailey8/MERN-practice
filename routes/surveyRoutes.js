@@ -16,7 +16,7 @@ module.exports = app => {
   app.get('/api/surveys', requireLogin, async (req, res) => {
 
     const surveys = await Survey.find({ _user: req.user.id }).select({
-      recipients: false
+      recipients: false // Don't return the recipients inside the surveys
     });
 
     res.send(surveys);
@@ -29,7 +29,7 @@ module.exports = app => {
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
-  
+    console.log(req.body);
     const p = new Path('/api/surveys/:surveyId/:choice');
 
     _.chain(req.body)
